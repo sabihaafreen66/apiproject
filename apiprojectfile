@@ -1,0 +1,27 @@
+function handleFormSubmit(event){
+  event.preventDefault();
+
+  let myObj = {
+    todoname : event.target.addtodo.value,
+   description : event.target.description.value 
+};
+axios
+    .post(
+      "https://crudcrud.com/api/60e3eca17e2e4f17b99a459e5a6f5cb2/todo",myObj
+        )
+           .then((myObj) => displayUserOnScreen(myObj.data))
+    .catch((error) => console.log(error));
+
+  // Clearing the input fields
+  document.getElementById("todo").value = "";
+  document.getElementById("description").value = "";
+ }
+function displayUserOnScreen(myObj) {
+  const newItem = document.createElement("li");
+  newItem.appendChild(
+    document.createTextNode(
+      `${myObj.todo} - ${myObj.description} `
+    )
+  );
+   
+    }
