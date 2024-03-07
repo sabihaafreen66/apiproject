@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback Form</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    .feedback-item {
+        margin-bottom: 20px;
+    }
+    .rating {
+        display: inline-block;
+        unicode-bidi: bidi-override;
+        direction: rtl;
+        font-size: 30px;
+    }
+    .rating input[type="radio"] {
+        display: none;
+    }
+    .rating label {
+        display: inline-block;
+        color: #ccc;
+        cursor: pointer;
+    }
+    .rating label:hover,
+    .rating label:hover ~ label,
+    .rating input[type="radio"]:checked ~ label {
+        color: #f7d201;
+    }
+</style>
+</head>
+<body>
+    <h2>Feedback Form</h2>
+    <form id="feedback-form">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5"><i class="fas fa-star"></i></label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4"><i class="fas fa-star"></i></label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3"><i class="fas fa-star"></i></label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2"><i class="fas fa-star"></i></label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1"><i class="fas fa-star"></i></label>
+            <input type="radio" id="star0" name="rating" value="0">
+            <label for="star0"><i class="fas fa-star"></i></label>
+        </div>
+        <div>
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" cols="40"></textarea>
+        </div>
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+    <div id="feedback-list"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="feedback.js"></script>
+      
+    
+</body>
+</html>
